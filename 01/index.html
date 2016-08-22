@@ -21,7 +21,7 @@
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-composite-projections/0.3.5/albersUsa-proj.min.js"></script>
+<script src="albersUsa-proj.js"></script>
 
 <script>
 
@@ -49,6 +49,7 @@ svg.append("rect")
   .style("opacity", .2);
 
 d3.json("tl_2015_us_cd114_2pc.json", function(error, us) {
+  console.log('us', us);
   svg.insert("path", ".graticule")
       .datum(topojson.feature(us, us.objects.tl_2015_us_cd114))
       .attr("class", "land")
@@ -67,11 +68,11 @@ d3.json("tl_2015_us_cd114_2pc.json", function(error, us) {
   //     .attr("class", "state-boundary")
   //     .attr("d", path);
 
-  svg
-    .append("path")
-      .style("fill","none")
-      .style("stroke","#000")
-      .attr("d", projection.getCompositionBorders());
+  // svg
+  //   .append("path")
+  //     .style("fill","none")
+  //     .style("stroke","#000")
+  //     .attr("d", projection.getCompositionBorders());
 
 });
 
